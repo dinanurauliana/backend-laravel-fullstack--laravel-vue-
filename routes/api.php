@@ -33,17 +33,19 @@ Route::prefix('auth')->group(function () {
 
 /*
 |--------------------------------------------------------------------------
-| API Tasks
+| Route Tasks V1
 |--------------------------------------------------------------------------
 */
 
-Route::middleware('auth:sanctum')->prefix('v1')->group(function () {
-    Route::apiResource('tasks', TaskController::class);
-    Route::patch(
-        '/tasks/{task}/complete',
-        CompletedTaskController::class
-    );
-});
+require __DIR__  . '/api/v1.php';
+
+/*
+|--------------------------------------------------------------------------
+| Route Tasks V2 (Auth sanctum)
+|--------------------------------------------------------------------------
+*/
+
+require __DIR__  . '/api/v2.php';
 
 /*
 |--------------------------------------------------------------------------
